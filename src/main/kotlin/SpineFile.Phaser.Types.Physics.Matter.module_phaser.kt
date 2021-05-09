@@ -1,22 +1,10 @@
 @file:Suppress("INTERFACE_WITH_SUPERCLASS", "OVERRIDING_FINAL_MEMBER", "RETURN_TYPE_MISMATCH_ON_OVERRIDE", "CONFLICTING_OVERLOADS")
 package Phaser.Types.Physics.Matter
 
-import kotlin.js.*
-import org.khronos.webgl.*
-import org.w3c.dom.*
-import org.w3c.dom.events.*
-import org.w3c.dom.parsing.*
-import org.w3c.dom.svg.*
-import org.w3c.dom.url.*
-import org.w3c.fetch.*
-import org.w3c.files.*
-import org.w3c.notifications.*
-import org.w3c.performance.*
-import org.w3c.workers.*
-import org.w3c.xhr.*
 import MatterJS.BodyType
-import Phaser.Types.Math.Vector2Like
 import MatterJS.Vector
+import Phaser.Types.Math.Vector2Like
+import ru.androidovshchik.InvalidName
 
 external interface MatterBodyConfig {
     var label: String?
@@ -142,10 +130,12 @@ external interface MatterBodyRenderConfig {
     var sprite: Any?
         get() = definedExternally
         set(value) = definedExternally
-    var sprite.xOffset: Number?
+    @InvalidName
+    var sprite_xOffset: Number?
         get() = definedExternally
         set(value) = definedExternally
-    var sprite.yOffset: Number?
+    @InvalidName
+    var sprite_yOffset: Number?
         get() = definedExternally
         set(value) = definedExternally
 }
@@ -523,31 +513,40 @@ external interface MatterWorldConfig {
     var setBounds: dynamic /* Any? | Boolean? */
         get() = definedExternally
         set(value) = definedExternally
-    var setBounds.x: Number?
+    @InvalidName
+    var setBounds_x: Number?
         get() = definedExternally
         set(value) = definedExternally
-    var setBounds.y: Number?
+    @InvalidName
+    var setBounds_y: Number?
         get() = definedExternally
         set(value) = definedExternally
-    var setBounds.width: Number?
+    @InvalidName
+    var setBounds_width: Number?
         get() = definedExternally
         set(value) = definedExternally
-    var setBounds.height: Number?
+    @InvalidName
+    var setBounds_height: Number?
         get() = definedExternally
         set(value) = definedExternally
-    var setBounds.thickness: Number?
+    @InvalidName
+    var setBounds_thickness: Number?
         get() = definedExternally
         set(value) = definedExternally
-    var setBounds.left: Boolean?
+    @InvalidName
+    var setBounds_left: Boolean?
         get() = definedExternally
         set(value) = definedExternally
-    var setBounds.right: Boolean?
+    @InvalidName
+    var setBounds_right: Boolean?
         get() = definedExternally
         set(value) = definedExternally
-    var setBounds.top: Boolean?
+    @InvalidName
+    var setBounds_top: Boolean?
         get() = definedExternally
         set(value) = definedExternally
-    var setBounds.bottom: Boolean?
+    @InvalidName
+    var setBounds_bottom: Boolean?
         get() = definedExternally
         set(value) = definedExternally
     var positionIterations: Number?
@@ -562,19 +561,24 @@ external interface MatterWorldConfig {
     var enableSleeping: Boolean?
         get() = definedExternally
         set(value) = definedExternally
-    var timing.timestamp: Number?
+    @InvalidName
+    var timing_timestamp: Number?
         get() = definedExternally
         set(value) = definedExternally
-    var timing.timeScale: Number?
+    @InvalidName
+    var timing_timeScale: Number?
         get() = definedExternally
         set(value) = definedExternally
-    var plugins.attractors: Boolean?
+    @InvalidName
+    var plugins_attractors: Boolean?
         get() = definedExternally
         set(value) = definedExternally
-    var plugins.wrap: Boolean?
+    @InvalidName
+    var plugins_wrap: Boolean?
         get() = definedExternally
         set(value) = definedExternally
-    var plugins.collisionevents: Boolean?
+    @InvalidName
+    var plugins_collisionevents: Boolean?
         get() = definedExternally
         set(value) = definedExternally
     var enabled: Boolean?

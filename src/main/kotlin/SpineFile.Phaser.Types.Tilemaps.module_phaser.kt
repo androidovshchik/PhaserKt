@@ -9,7 +9,7 @@ import Phaser.Tilemaps.LayerData
 import Phaser.Tilemaps.TilemapLayer
 import Phaser.Tilemaps.Tileset
 import Phaser.Types.Math.Vector2Like
-import ru.androidovshchik.InvalidNaming
+import ru.androidovshchik.InvalidName
 
 external interface CreateFromObjectLayerConfig {
     var id: Number?
@@ -39,15 +39,15 @@ external interface CreateFromObjectLayerConfig {
 }
 
 external interface DebugStyleOptions {
-    @InvalidNaming
+    @InvalidName
     var styleConfig_tileColor: Color?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var styleConfig_collidingTileColor: Color?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var styleConfig_faceColor: Color?
         get() = definedExternally
         set(value) = definedExternally

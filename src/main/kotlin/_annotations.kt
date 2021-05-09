@@ -4,4 +4,4 @@ package ru.androidovshchik
 annotation class NotImplemented
 
 @Retention(AnnotationRetention.SOURCE)
-annotation class InvalidNaming
+annotation class InvalidName
