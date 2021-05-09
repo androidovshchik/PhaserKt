@@ -2,54 +2,32 @@
 @file:Suppress("INTERFACE_WITH_SUPERCLASS", "OVERRIDING_FINAL_MEMBER", "RETURN_TYPE_MISMATCH_ON_OVERRIDE", "CONFLICTING_OVERLOADS")
 package Phaser.Cameras.Scene2D
 
-import kotlin.js.*
-import org.khronos.webgl.*
-import org.w3c.dom.*
-import org.w3c.dom.events.*
-import org.w3c.dom.parsing.*
-import org.w3c.dom.svg.*
-import org.w3c.dom.url.*
-import org.w3c.fetch.*
-import org.w3c.files.*
-import org.w3c.notifications.*
-import org.w3c.performance.*
-import org.w3c.workers.*
-import org.w3c.xhr.*
-import Phaser.Scene
-import Phaser.Scenes.SceneManager
-import Phaser.Scale.ScaleManager
-import Phaser.Geom.Rectangle
+import CameraRotateCallback
+import Phaser.Cameras.Scene2D.Effects.*
 import Phaser.Display.Color
-import Phaser.Math.Vector2
-import Phaser.GameObjects.GameObject
-import Phaser.GameObjects.Group
-import Phaser.Types.Display.InputColorObject
 import Phaser.Display.Masks.BitmapMask
 import Phaser.Display.Masks.GeometryMask
-import Phaser.Types.Cameras.Scene2D.JSONCamera
 import Phaser.Events.EventEmitter
-import Phaser.GameObjects.Components.Alpha
-import Phaser.GameObjects.Components.Visible
-import Phaser.Cameras.Scene2D.Effects.Fade
-import Phaser.Cameras.Scene2D.Effects.Flash
-import Phaser.Cameras.Scene2D.Effects.Shake
-import Phaser.Cameras.Scene2D.Effects.Pan
-import Phaser.Cameras.Scene2D.Effects.RotateTo
-import Phaser.Cameras.Scene2D.Effects.Zoom
-import Phaser.Types.Cameras.Scene2D.CameraPanCallback
-import CameraRotateCallback
-import Phaser.Renderer.WebGL.WebGLPipeline
-import Phaser.Renderer.WebGL.Pipelines.PostFXPipeline
-import Phaser.GameObjects.Components.Flip
-import Phaser.GameObjects.Components.Tint
-import Phaser.GameObjects.Components.Pipeline
-import Phaser.Scenes.Systems
-import Phaser.Types.Cameras.Scene2D.CameraConfig
-import Phaser.Input.Pointer
-import Phaser.Renderer.Canvas.CanvasRenderer
+import Phaser.GameObjects.Components.*
 import Phaser.GameObjects.DisplayList
+import Phaser.GameObjects.GameObject
+import Phaser.GameObjects.Group
+import Phaser.Geom.Rectangle
+import Phaser.Input.Pointer
+import Phaser.Math.Vector2
+import Phaser.Renderer.Canvas.CanvasRenderer
+import Phaser.Renderer.WebGL.Pipelines.PostFXPipeline
+import Phaser.Renderer.WebGL.WebGLPipeline
 import Phaser.Renderer.WebGL.WebGLRenderer
+import Phaser.Scale.ScaleManager
+import Phaser.Scene
+import Phaser.Scenes.SceneManager
+import Phaser.Scenes.Systems
 import Phaser.Structs.Size
+import Phaser.Types.Cameras.Scene2D.CameraConfig
+import Phaser.Types.Cameras.Scene2D.CameraPanCallback
+import Phaser.Types.Cameras.Scene2D.JSONCamera
+import Phaser.Types.Display.InputColorObject
 
 external open class BaseCamera(x: Number, y: Number, width: Number, height: Number) : EventEmitter, Alpha, Visible {
     open var scene: Scene
@@ -129,6 +107,7 @@ external open class BaseCamera(x: Number, y: Number, width: Number, height: Numb
     open var displayWidth: Number
     open var displayHeight: Number
     override fun clearAlpha(): BaseCamera /* this */
+    override fun setAlpha(topLeft: Number, topRight: Number, bottomLeft: Number, bottomRight: Number): Alpha
     override var alphaTopLeft: Number
     override var alphaTopRight: Number
     override var alphaBottomLeft: Number
@@ -213,6 +192,7 @@ external open class Camera(x: Number, y: Number, width: Number, height: Number) 
     override fun update(time: Number, delta: Number)
     override fun destroy()
     override fun clearAlpha(): Camera /* this */
+    override fun setAlpha(topLeft: Number, topRight: Number, bottomLeft: Number, bottomRight: Number): Alpha
     override var alphaTopLeft: Number
     override var alphaTopRight: Number
     override var alphaBottomLeft: Number
