@@ -9,6 +9,7 @@ import Phaser.Types.GameObjects.GameObjectConfig
 import Phaser.Types.Math.Vector2Like
 import Phaser.Types.Math.Vector3Like
 import Phaser.Types.Math.Vector4Like
+import ru.androidovshchik.NotImplemented
 import spine.*
 
 external open class SpineGameObject(scene: Scene, pluginManager: SpinePlugin, x: Number, y: Number, key: String = definedExternally, animationName: String = definedExternally, loop: Boolean = definedExternally) : GameObject, ComputedSize, Depth, Flip, ScrollFactor, Transform, Visible {
@@ -23,7 +24,7 @@ external open class SpineGameObject(scene: Scene, pluginManager: SpinePlugin, x:
     override var depth: Number
     override var displayWidth: Number
     override var displayHeight: Number
-    /* Not supported */
+    @NotImplemented
     override fun setSize(width: Number, height: Number): ComputedSize
     override var flipX: Boolean
     override var flipY: Boolean
