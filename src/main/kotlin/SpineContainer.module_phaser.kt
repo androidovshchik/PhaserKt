@@ -1,43 +1,25 @@
 @file:Suppress("INTERFACE_WITH_SUPERCLASS", "OVERRIDING_FINAL_MEMBER", "RETURN_TYPE_MISMATCH_ON_OVERRIDE", "CONFLICTING_OVERLOADS")
 
-import kotlin.js.*
-import org.khronos.webgl.*
-import org.w3c.dom.*
-import org.w3c.dom.events.*
-import org.w3c.dom.parsing.*
-import org.w3c.dom.svg.*
-import org.w3c.dom.url.*
-import org.w3c.fetch.*
-import org.w3c.files.*
-import org.w3c.notifications.*
-import org.w3c.performance.*
-import org.w3c.workers.*
-import org.w3c.xhr.*
-import Phaser.Scene
-import Phaser.GameObjects.Components.TransformMatrix
-import Phaser.Geom.Rectangle
-import Phaser.Geom.Point
-import Phaser.Math.Vector2
-import Phaser.GameObjects.GameObject
-import Phaser.GameObjects.Container
 import Phaser.BlendModes
 import Phaser.Display.Masks.BitmapMask
 import Phaser.Display.Masks.GeometryMask
+import Phaser.GameObjects.Components.*
+import Phaser.GameObjects.Container
+import Phaser.GameObjects.GameObject
 import Phaser.GameObjects.Graphics
+import Phaser.Geom.Point
+import Phaser.Geom.Rectangle
+import Phaser.Math.Vector2
+import Phaser.Scene
+import Phaser.Types.GameObjects.GameObjectConfig
 import Phaser.Types.Math.Vector2Like
-import Phaser.GameObjects.Components.Transform
 import Phaser.Types.Math.Vector3Like
 import Phaser.Types.Math.Vector4Like
-import Phaser.GameObjects.Components.AlphaSingle
-import Phaser.GameObjects.Components.BlendMode
-import Phaser.GameObjects.Components.ComputedSize
-import Phaser.GameObjects.Components.Depth
-import Phaser.GameObjects.Components.Mask
-import Phaser.GameObjects.Components.Visible
-import Phaser.Types.GameObjects.GameObjectConfig
+import ru.androidovshchik.InexactType
 
 external open class SpineContainer(scene: Scene, pluginManager: SpinePlugin, x: Number = definedExternally, y: Number = definedExternally, children: Array<SpineGameObject> = definedExternally) : Container, AlphaSingle, BlendMode, ComputedSize, Depth, Mask, Transform, Visible {
-    override var list: Array<SpineGameObject>
+    @InexactType("Array<SpineGameObject>")
+    override var list: Array<GameObject>
     override var exclusive: Boolean
     override var maxSize: Number
     override var position: Number
@@ -118,10 +100,14 @@ external open class SpineContainer(scene: Scene, pluginManager: SpinePlugin, x: 
     override fun iterate(callback: Function<*>, context: Any?, vararg args: Any): SpineContainer /* this */
     override fun setScrollFactor(x: Number, y: Number, updateChildren: Boolean): SpineContainer /* this */
     override var length: Number
-    override var first: SpineGameObject
-    override var last: SpineGameObject
-    override var next: SpineGameObject
-    override var previous: SpineGameObject
+    @InexactType("SpineGameObject")
+    override var first: GameObject
+    @InexactType("SpineGameObject")
+    override var last: GameObject
+    @InexactType("SpineGameObject")
+    override var next: GameObject
+    @InexactType("SpineGameObject")
+    override var previous: GameObject
     override fun preDestroy()
     override fun clearAlpha(): SpineContainer /* this */
     override fun setAlpha(value: Number): SpineContainer /* this */
