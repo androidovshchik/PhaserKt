@@ -9,7 +9,7 @@ import org.w3c.files.Blob
 import org.w3c.workers.CacheQueryOptions
 import org.w3c.xhr.FormData
 import org.w3c.xhr.ProgressEvent
-import org.w3c.xhr.XMLHttpRequestEventTarget
+import ru.androidovshchik.InexactType
 import kotlin.js.Date
 import kotlin.js.Promise
 
@@ -1062,7 +1062,7 @@ external interface MidiPermissionDescriptor : PermissionDescriptor {
 }
 
 external interface MultiCacheQueryOptions : CacheQueryOptions {
-    var cacheName: String?
+    override var cacheName: String?
         get() = definedExternally
         set(value) = definedExternally
 }
@@ -2230,7 +2230,8 @@ external interface ApplicationCacheEventMap {
     var error: Event
     var noupdate: Event
     var obsolete: Event
-    var progress: ProgressEvent<ApplicationCache>
+    @InexactType("ProgressEvent<ApplicationCache>")
+    var progress: ProgressEvent
     var updateready: Event
 }
 
@@ -3014,7 +3015,8 @@ external interface CryptoKeyPair {
     var publicKey: CryptoKey
 }
 
-external interface CustomEvent__0 : CustomEvent<Any>
+@InexactType("CustomEvent<Any>")
+external interface CustomEvent__0 : CustomEvent
 
 external interface DOMException {
     var code: Number
@@ -3384,12 +3386,13 @@ external interface HTMLCollectionBase {
 }
 
 external interface HTMLCollectionOf<T : Element> : HTMLCollectionBase {
-    fun item(index: Number): T?
+    override fun item(index: Number): T?
     fun namedItem(name: String): T?
     @nativeGetter
-    operator fun get(index: Number): T?
+    override operator fun get(index: Number): T?
     @nativeSetter
-    override operator fun set(index: Number, value: T)
+    @InexactType("T")
+    override operator fun set(index: Number, value: Element)
 }
 
 external interface HTMLElementEventMap : ElementEventMap, GlobalEventHandlersEventMap, DocumentAndElementEventHandlersEventMap
@@ -4393,16 +4396,17 @@ external interface NavigatorStorage {
 }
 
 external interface NodeListOf<TNode : Node> : NodeList {
-    override fun entries(): IterableIterator<dynamic /* JsTuple<Number, TNode> */>
-    override fun keys(): IterableIterator<Number>
-    override fun values(): IterableIterator<TNode>
-    override var length: Number
+    fun entries(): IterableIterator<dynamic /* JsTuple<Number, TNode> */>
+    fun keys(): IterableIterator<Number>
+    fun values(): IterableIterator<TNode>
+    @InexactType("Number")
+    override var length: Int
     fun item(index: Number): TNode
     fun forEach(callbackfn: (value: TNode, key: Number, parent: NodeListOf<TNode>) -> Unit, thisArg: Any = definedExternally)
     @nativeGetter
     operator fun get(index: Number): TNode?
     @nativeSetter
-    override operator fun set(index: Number, value: TNode)
+    operator fun set(index: Number, value: TNode)
 }
 
 external interface NotificationEventMap {
@@ -4610,7 +4614,8 @@ external interface PositionError {
     var TIMEOUT: Number
 }
 
-external interface ProgressEvent__0 : ProgressEvent<EventTarget>
+@InexactType("ProgressEvent<EventTarget>")
+external interface ProgressEvent__0 : ProgressEvent
 
 external interface PushManager {
     fun getSubscription(): Promise<PushSubscription?>
@@ -4727,7 +4732,7 @@ external interface RTCDataChannel : EventTarget {
     fun <K : String> removeEventListener(type: K, listener: (self: RTCDataChannel, ev: Any) -> Any)
     fun <K : String> removeEventListener(type: K, listener: (self: RTCDataChannel, ev: Any) -> Any, options: EventListenerOptions = definedExternally)
     fun removeEventListener(type: String, listener: EventListener, options: Boolean = definedExternally)
-    fun removeEventListener(type: String, callback: EventListener?, options: Boolean)
+    override fun removeEventListener(type: String, callback: EventListener?, options: Boolean)
     fun removeEventListener(type: String, listener: EventListener)
     fun removeEventListener(type: String, callback: EventListener?)
     fun removeEventListener(type: String, listener: EventListener, options: EventListenerOptions = definedExternally)
@@ -7437,7 +7442,8 @@ external interface WindowEventMap : GlobalEventHandlersEventMap, WindowEventHand
     override var playing: Event
     override var popstate: PopStateEvent
     override var ratechange: Event
-    var readystatechange: ProgressEvent<Window>
+    @InexactType("ProgressEvent<Window>")
+    var readystatechange: ProgressEvent
     override var reset: Event
     override var resize: UIEvent
     override var scroll: Event
@@ -7511,13 +7517,20 @@ external interface XMLHttpRequestEventMap : XMLHttpRequestEventTargetEventMap {
 }
 
 external interface XMLHttpRequestEventTargetEventMap {
-    var abort: ProgressEvent<XMLHttpRequestEventTarget>
-    var error: ProgressEvent<XMLHttpRequestEventTarget>
-    var load: ProgressEvent<XMLHttpRequestEventTarget>
-    var loadend: ProgressEvent<XMLHttpRequestEventTarget>
-    var loadstart: ProgressEvent<XMLHttpRequestEventTarget>
-    var progress: ProgressEvent<XMLHttpRequestEventTarget>
-    var timeout: ProgressEvent<XMLHttpRequestEventTarget>
+    @InexactType("ProgressEvent<XMLHttpRequestEventTarget>")
+    var abort: ProgressEvent
+    @InexactType("ProgressEvent<XMLHttpRequestEventTarget>")
+    var error: ProgressEvent
+    @InexactType("ProgressEvent<XMLHttpRequestEventTarget>")
+    var load: ProgressEvent
+    @InexactType("ProgressEvent<XMLHttpRequestEventTarget>")
+    var loadend: ProgressEvent
+    @InexactType("ProgressEvent<XMLHttpRequestEventTarget>")
+    var loadstart: ProgressEvent
+    @InexactType("ProgressEvent<XMLHttpRequestEventTarget>")
+    var progress: ProgressEvent
+    @InexactType("ProgressEvent<XMLHttpRequestEventTarget>")
+    var timeout: ProgressEvent
 }
 
 external interface XPathEvaluatorBase {
