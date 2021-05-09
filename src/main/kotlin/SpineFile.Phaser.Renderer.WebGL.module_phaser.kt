@@ -2,47 +2,33 @@
 @file:Suppress("INTERFACE_WITH_SUPERCLASS", "OVERRIDING_FINAL_MEMBER", "RETURN_TYPE_MISMATCH_ON_OVERRIDE", "CONFLICTING_OVERLOADS")
 package Phaser.Renderer.WebGL
 
-import kotlin.js.*
-import org.khronos.webgl.*
-import org.w3c.dom.*
-import org.w3c.dom.events.*
-import org.w3c.dom.parsing.*
-import org.w3c.dom.svg.*
-import org.w3c.dom.url.*
-import org.w3c.fetch.*
-import org.w3c.files.*
-import org.w3c.notifications.*
-import org.w3c.performance.*
-import org.w3c.workers.*
-import org.w3c.xhr.*
-import Phaser.Types.Renderer.WebGL.WebGLConst
-import Phaser.Game
-import Phaser.Structs.Map
 import Class
-import Phaser.Renderer.WebGL.Pipelines.MultiPipeline
-import Phaser.Renderer.WebGL.Pipelines.BitmapMaskPipeline
-import Phaser.Renderer.WebGL.Pipelines.UtilityPipeline
-import Phaser.Types.Core.PipelineConfig
-import Phaser.GameObjects.GameObject
-import Phaser.Renderer.WebGL.Pipelines.PostFXPipeline
 import Phaser.Cameras.Scene2D.Camera
 import Phaser.Display.ColorMatrix
-import Phaser.Types.Renderer.WebGL.WebGLPipelineConfig
-import tsstdlib.GLenum
-import Phaser.Math.Matrix4
-import Phaser.Textures.Frame
-import Phaser.Scene
-import Phaser.Events.EventEmitter
-import Phaser.Types.Renderer.Snapshot.SnapshotState
-import tsstdlib.ANGLE_instanced_arrays
-import tsstdlib.OES_vertex_array_object
 import Phaser.Display.Masks.GeometryMask
+import Phaser.Events.EventEmitter
+import Phaser.Game
+import Phaser.GameObjects.GameObject
+import Phaser.Math.Matrix4
+import Phaser.Renderer.WebGL.Pipelines.BitmapMaskPipeline
+import Phaser.Renderer.WebGL.Pipelines.MultiPipeline
+import Phaser.Renderer.WebGL.Pipelines.PostFXPipeline
+import Phaser.Renderer.WebGL.Pipelines.UtilityPipeline
+import Phaser.Scene
+import Phaser.Structs.Map
 import Phaser.Structs.Size
+import Phaser.Textures.Frame
 import Phaser.Textures.TextureSource
+import Phaser.Types.Core.PipelineConfig
 import Phaser.Types.Renderer.Snapshot.SnapshotCallback
-import Phaser.Types.Renderer.WebGL.WebGLPipelineAttributesConfig
-import Phaser.Types.Renderer.WebGL.WebGLPipelineAttribute
-import Phaser.Types.Renderer.WebGL.WebGLPipelineUniformsConfig
+import Phaser.Types.Renderer.Snapshot.SnapshotState
+import Phaser.Types.Renderer.WebGL.*
+import org.khronos.webgl.*
+import org.w3c.dom.HTMLCanvasElement
+import org.w3c.dom.HTMLVideoElement
+import tsstdlib.ANGLE_instanced_arrays
+import tsstdlib.GLenum
+import tsstdlib.OES_vertex_array_object
 
 external var BYTE: WebGLConst
 
@@ -259,7 +245,7 @@ external open class WebGLPipeline(config: WebGLPipelineConfig) : EventEmitter {
     open fun setMatrix2fv(name: String, transpose: Boolean, matrix: Float32Array): WebGLPipeline /* this */
     open fun setMatrix3fv(name: String, transpose: Boolean, matrix: Float32Array, shader: WebGLShader = definedExternally): WebGLPipeline /* this */
     open fun setMatrix4fv(name: String, transpose: Boolean, matrix: Float32Array, shader: WebGLShader = definedExternally): WebGLPipeline /* this */
-    open fun destroy(): WebGLPipeline /* this */
+    override fun destroy(): WebGLPipeline /* this */
 }
 
 external open class WebGLRenderer(game: Game) : EventEmitter {

@@ -3,7 +3,7 @@ package Phaser.Types.GameObjects.Group
 
 import Phaser.GameObjects.GameObject
 import Phaser.Types.Input.HitAreaCallback
-import ru.androidovshchik.InvalidNaming
+import ru.androidovshchik.InvalidName
 
 typealias GroupCallback = (item: GameObject) -> Unit
 
@@ -80,109 +80,109 @@ external interface GroupCreateConfig {
     var setXY: Any?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setXY_x: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setXY_y: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setXY_stepX: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setXY_stepY: Number?
         get() = definedExternally
         set(value) = definedExternally
     var setRotation: Any?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setRotation_value: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setRotation_step: Number?
         get() = definedExternally
         set(value) = definedExternally
     var setScale: Any?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setScale_x: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setScale_y: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setScale_stepX: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setScale_stepY: Number?
         get() = definedExternally
         set(value) = definedExternally
     var setOrigin: Any?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setOrigin_x: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setOrigin_y: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setOrigin_stepX: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setOrigin_stepY: Number?
         get() = definedExternally
         set(value) = definedExternally
     var setAlpha: Any?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setAlpha_value: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setAlph_step: Number?
         get() = definedExternally
         set(value) = definedExternally
     var setDepth: Any?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setDepth_value: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setDepth_step: Number?
         get() = definedExternally
         set(value) = definedExternally
     var setScrollFactor: Any?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setScrollFactor_x: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setScrollFactor_y: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setScrollFactor_stepX: Number?
         get() = definedExternally
         set(value) = definedExternally
-    @InvalidNaming
+    @InvalidName
     var setScrollFactor_stepY: Number?
         get() = definedExternally
         set(value) = definedExternally
