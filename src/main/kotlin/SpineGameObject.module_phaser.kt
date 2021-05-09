@@ -1,47 +1,17 @@
 @file:Suppress("INTERFACE_WITH_SUPERCLASS", "OVERRIDING_FINAL_MEMBER", "RETURN_TYPE_MISMATCH_ON_OVERRIDE", "CONFLICTING_OVERLOADS")
 
-import kotlin.js.*
-import org.khronos.webgl.*
-import org.w3c.dom.*
-import org.w3c.dom.events.*
-import org.w3c.dom.parsing.*
-import org.w3c.dom.svg.*
-import org.w3c.dom.url.*
-import org.w3c.fetch.*
-import org.w3c.files.*
-import org.w3c.notifications.*
-import org.w3c.performance.*
-import org.w3c.workers.*
-import org.w3c.xhr.*
+import Phaser.Cameras.Scene2D.Camera
+import Phaser.GameObjects.Components.*
+import Phaser.GameObjects.GameObject
+import Phaser.Math.Vector2
 import Phaser.Scene
-import spine.Bone
-import spine.Skeleton
-import spine.SkeletonData
-import spine.AnimationState
-import spine.AnimationStateData
-import spine.TrackEntry
-import spine.Animation
-import spine.EventData
-import spine.IkConstraintData
-import spine.PathConstraintData
-import spine.Skin
-import spine.Slot
-import spine.TransformConstraintData
-import spine.Attachment
-import Phaser.GameObjects.Components.TransformMatrix
+import Phaser.Types.GameObjects.GameObjectConfig
 import Phaser.Types.Math.Vector2Like
-import Phaser.GameObjects.Components.Transform
 import Phaser.Types.Math.Vector3Like
 import Phaser.Types.Math.Vector4Like
-import Phaser.GameObjects.GameObject
-import Phaser.GameObjects.Components.ComputedSize
-import Phaser.GameObjects.Components.Depth
-import Phaser.GameObjects.Components.Flip
-import Phaser.GameObjects.Components.ScrollFactor
-import Phaser.GameObjects.Components.Visible
-import Phaser.Types.GameObjects.GameObjectConfig
+import spine.*
 
-external open class SpineGameObject(scene: Scene, pluginManager: SpinePlugin, x: Number, y: Number, key: String = definedExternally, animationName: String = definedExternally, loop: Boolean = definedExternally) : GameObject, Omit<ComputedSize, String /* "setSize" */>, Depth, Flip, ScrollFactor, Transform, Visible {
+external open class SpineGameObject(scene: Scene, pluginManager: SpinePlugin, x: Number, y: Number, key: String = definedExternally, animationName: String = definedExternally, loop: Boolean = definedExternally) : GameObject, ComputedSize, Depth, Flip, ScrollFactor, Transform, Visible {
     open var alpha: Number
     override var angle: Number
     open var blendMode: Number
@@ -51,12 +21,14 @@ external open class SpineGameObject(scene: Scene, pluginManager: SpinePlugin, x:
     open var displayOriginY: Number
     open var drawDebug: Boolean
     override var depth: Number
-    open var displayWidth: Number
-    open var displayHeight: Number
+    override var displayWidth: Number
+    override var displayHeight: Number
+    /* Not supported */
+    override fun setSize(width: Number, height: Number): ComputedSize
     override var flipX: Boolean
     override var flipY: Boolean
     open var green: Number
-    open var height: Number
+    override var height: Number
     open var plugin: SpinePlugin
     open var preMultipliedAlpha: Boolean
     open var red: Number
@@ -77,7 +49,7 @@ external open class SpineGameObject(scene: Scene, pluginManager: SpinePlugin, x:
     override var y: Number
     override var z: Number
     override var w: Number
-    open var width: Number
+    override var width: Number
     open fun addAnimation(trackIndex: Number, animationName: String, loop: Boolean = definedExternally, delay: Number = definedExternally): TrackEntry
     open fun angleBoneToXY(bone: Bone, worldX: Number, worldY: Number, offset: Number = definedExternally, minAngle: Number = definedExternally, maxAngle: Number = definedExternally): SpineGameObject
     open fun clearTrack(trackIndex: Number): SpineGameObject
@@ -100,6 +72,7 @@ external open class SpineGameObject(scene: Scene, pluginManager: SpinePlugin, x:
     open fun getBounds(): Any
     open fun getCurrentAnimation(trackIndex: Number = definedExternally): Animation
     override fun getLocalTransformMatrix(tempMatrix: TransformMatrix): TransformMatrix
+    override fun getLocalPoint(x: Number, y: Number, point: Vector2, camera: Camera): Vector2
     override fun getParentRotation(): Number
     open fun getRootBone(): Bone
     open fun getSkinList(): Array<String>
@@ -117,7 +90,7 @@ external open class SpineGameObject(scene: Scene, pluginManager: SpinePlugin, x:
     open fun setBonesToSetupPose(): SpineGameObject
     open fun setColor(color: Number = definedExternally, slotName: String = definedExternally): SpineGameObject
     override fun setDepth(value: Number): SpineGameObject /* this */
-    open fun setDisplaySize(width: Number, height: Number): SpineGameObject /* this */
+    override fun setDisplaySize(width: Number, height: Number): SpineGameObject /* this */
     open fun setEmptyAnimation(trackIndex: Number, mixDuration: Number = definedExternally): TrackEntry
     override fun setFlipX(value: Boolean): SpineGameObject /* this */
     override fun setFlipY(value: Boolean): SpineGameObject /* this */
